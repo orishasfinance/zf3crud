@@ -25,6 +25,19 @@ class IndexController extends AbstractActionController
     }
 
     public function addAction(){
+        $form = new \Post\Form\PostForm;
+        return new viewModel(['form'=> $form]);
+    }
+
+    public function viewAction(){
+        return new viewModel();
+    }
+
+    public function editAction(){
+        return new viewModel();
+    }
+
+    public function deleteAction(){
         return new viewModel();
     }
 }
