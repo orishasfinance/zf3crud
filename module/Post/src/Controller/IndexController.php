@@ -26,7 +26,23 @@ class IndexController extends AbstractActionController
 
     public function addAction(){
         $form = new \Post\Form\PostForm;
-        return new viewModel(['form'=> $form]);
+        $request = $this->getRequest();
+        if (!$request->isPost()){
+            return new viewModel(['form'=> $form]);
+        }
+
+        $post = new \Post\Model\Post();
+        $form->setData($request->getPost());
+        if (!$form->isValid()){
+            exit('id is not correct');
+        }
+
+        $post->exchangeArray($form->getData());
+        $this->table->saveData($post);
+        return $this->redirect()->toRoute('post', [
+            'controller' => 'index',
+                'action' => 'add'
+        ]);
     }
 
     public function viewAction(){

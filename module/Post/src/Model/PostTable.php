@@ -16,4 +16,14 @@ class PostTable
        return $this->tableGateway->select();
    }
 
+   public function saveData($post){
+       $data = [
+           'title' => $post->getTitle(),
+           'description' => $post->getDescription(),
+           'category' => $post->getCategory(),
+       ];
+
+       return $this->tableGateway->insert($data);
+   }
+
 }

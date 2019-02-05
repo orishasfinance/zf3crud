@@ -1,6 +1,9 @@
 <?php
+/**
+ * Date: 05/02/2019
+ * Time: 16:23
+ */
 namespace Post\Form;
-
 use Zend\Form\Form;
 
 class PostForm extends Form
@@ -9,7 +12,7 @@ class PostForm extends Form
     {
         parent::__construct('post');
         $this->setAttribute('method', 'POST');
-        //form
+
         $this->add([
             'name' => 'id',
             'type' => 'hidden'
@@ -44,9 +47,8 @@ class PostForm extends Form
             'type' => 'submit',
             'attributes' => [
                 'value' => 'Save',
-                'id'    => 'buttonSave'
+                'id' => 'buttonSave'
             ]
         ]);
     }
-
 }
