@@ -29,4 +29,13 @@ class Post
     public function getCategory(){
         return $this->category;
     }
+
+    public function getArrayCopy(){
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'category' => $this->category,
+        ];
+    }
 }

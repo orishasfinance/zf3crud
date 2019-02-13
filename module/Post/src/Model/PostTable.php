@@ -26,4 +26,11 @@ class PostTable
        return $this->tableGateway->insert($data);
    }
 
+   public function getPost($id){
+       $data = $this->tableGateway->select([
+           'id'=>$id
+       ]);
+       return $data->current();
+   }
+
 }
